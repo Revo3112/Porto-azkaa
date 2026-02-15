@@ -240,7 +240,10 @@ export default function HeroSection() {
             <a
               ref={ctaRef}
               className="inline-flex items-center gap-2 bg-white text-dashboard-dark px-6 py-3 rounded-lg font-bold text-sm hover:bg-blue-50 transition-all duration-300 group shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] relative overflow-hidden"
-              href="#"
+              href="/CV_Azkaa_Rahiila_Hardi.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <span className="relative z-10 flex items-center gap-2">
                 <Download className="w-4 h-4 group-hover:animate-bounce" />

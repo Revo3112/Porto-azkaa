@@ -38,9 +38,20 @@ export default function Footer() {
       className="mt-12 py-6 border-t border-slate-100 text-center"
     >
       <div ref={contentRef} className="flex items-center justify-center gap-2 mb-3">
-        <div className="w-7 h-7 bg-dashboard-accent text-white rounded-md flex items-center justify-center font-bold font-mono text-xs">
-          AR
-        </div>
+        <svg 
+          width="28" 
+          height="28" 
+          viewBox="0 0 48 48"
+        >
+          <defs>
+            <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style={{ stopColor: "#2563EB" }} />
+              <stop offset="100%" style={{ stopColor: "#0D9488" }} />
+            </linearGradient>
+          </defs>
+          <rect width="48" height="48" rx="12" fill="url(#footerLogoGrad)" />
+          <text x="24" y="30" fontFamily="system-ui, -apple-system, sans-serif" fontSize="16" fontWeight="700" fill="white" textAnchor="middle">AR</text>
+        </svg>
         <span className="text-sm font-semibold text-slate-700">
           Azkaa Rahiila Hardi
         </span>

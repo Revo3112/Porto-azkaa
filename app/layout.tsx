@@ -13,8 +13,25 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Azkaa Rahiila Hardi - Data Analyst Portfolio",
-  description: "High-precision professional portfolio for Azkaa Rahiila Hardi, ensuring 100% information accuracy based on their CV within a compact, sophisticated dashboard design.",
+  title: "Azkaa Rahiila Hardi | Data Analyst Portfolio",
+  description: "High-precision professional portfolio for Azkaa Rahiila Hardi, BNSP Certified Data Analyst specializing in Python, SQL, Tableau, and Power BI.",
+  keywords: ["Data Analyst", "Azkaa Rahiila Hardi", "Portfolio", "BNSP Certified", "Python", "SQL", "Tableau", "Power BI"],
+  authors: [{ name: "Azkaa Rahiila Hardi" }],
+  creator: "Azkaa Rahiila Hardi",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/logo.svg", type: "image/svg+xml" },
+    ],
+  },
+  openGraph: {
+    title: "Azkaa Rahiila Hardi | Data Analyst Portfolio",
+    description: "BNSP Certified Data Analyst specializing in Python, SQL, Tableau, and Power BI.",
+    type: "website",
+    locale: "en_US",
+  },
 };
 
 export default function RootLayout({

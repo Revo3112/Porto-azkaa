@@ -133,9 +133,29 @@ export default function Header() {
     >
       <div className="max-w-[1280px] mx-auto w-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
         <div ref={logoRef} className="flex items-center gap-3">
-          <div className="h-8 w-8 bg-dashboard-accent text-white rounded-[8px] flex items-center justify-center font-bold font-mono text-sm relative overflow-hidden group cursor-pointer">
-            <span className="relative z-10">AR</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-dashboard-accent to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="relative group cursor-pointer">
+            <svg 
+              width="32" 
+              height="32" 
+              viewBox="0 0 48 48" 
+              className="transition-transform duration-300 group-hover:scale-110"
+            >
+              <defs>
+                <linearGradient id="headerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: "#2563EB" }} />
+                  <stop offset="100%" style={{ stopColor: "#0D9488" }} />
+                </linearGradient>
+              </defs>
+              <rect width="48" height="48" rx="12" fill="url(#headerLogoGrad)" />
+              <text x="24" y="30" fontFamily="system-ui, -apple-system, sans-serif" fontSize="16" fontWeight="700" fill="white" textAnchor="middle">AR</text>
+              <circle cx="10" cy="38" r="3" fill="rgba(255,255,255,0.9)" />
+              <circle cx="20" cy="34" r="2.5" fill="rgba(255,255,255,0.7)" />
+              <circle cx="30" cy="36" r="2" fill="rgba(255,255,255,0.8)" />
+              <circle cx="38" cy="32" r="3.5" fill="rgba(255,255,255,0.9)" />
+              <line x1="10" y1="38" x2="20" y2="34" stroke="rgba(255,255,255,0.5)" strokeWidth="1" />
+              <line x1="20" y1="34" x2="30" y2="36" stroke="rgba(255,255,255,0.5)" strokeWidth="1" />
+              <line x1="30" y1="36" x2="38" y2="32" stroke="rgba(255,255,255,0.5)" strokeWidth="1" />
+            </svg>
           </div>
           <div className="flex flex-col">
             <span className="font-bold text-sm tracking-tight leading-none">

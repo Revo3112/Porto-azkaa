@@ -18,14 +18,6 @@ export const metadata: Metadata = {
   keywords: ["Data Analyst", "Azkaa Rahiila Hardi", "Portfolio", "BNSP Certified", "Python", "SQL", "Tableau", "Power BI"],
   authors: [{ name: "Azkaa Rahiila Hardi" }],
   creator: "Azkaa Rahiila Hardi",
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
-    apple: [
-      { url: "/logo.svg", type: "image/svg+xml" },
-    ],
-  },
   openGraph: {
     title: "Azkaa Rahiila Hardi | Data Analyst Portfolio",
     description: "BNSP Certified Data Analyst specializing in Python, SQL, Tableau, and Power BI.",

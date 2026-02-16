@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number | undefined>(undefined);
   const gridRef = useRef<{ offsetX: number; offsetY: number }>({ offsetX: 0, offsetY: 0 });
   const glowOrbsRef = useRef<Array<{ x: number; y: number; size: number; speed: number; opacity: number }>>([]);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastTimeRef = useRef<number>(0);
+  const TARGET_FPS = 30;
+  const FRAME_INTERVAL = 1000 / TARGET_FPS;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -38,12 +42,29 @@ export default function ParticleBackground() {
       gridRef.current.offsetY = (e.clientY / window.innerHeight - 0.5) * 20;
     };
 
+    const handleVisibilityChange = () => {
+      setIsVisible(!document.hidden);
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     const gridSize = 60;
     let time = 0;
 
-    const animate = () => {
+    const animate = (currentTime: number) => {
+      if (!isVisible) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
+      const deltaTime = currentTime - lastTimeRef.current;
+      if (deltaTime < FRAME_INTERVAL) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+      lastTimeRef.current = currentTime - (deltaTime % FRAME_INTERVAL);
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       time += 0.01;
 
@@ -104,16 +125,17 @@ export default function ParticleBackground() {
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationRef.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [isVisible]);
 
   return (
     <>

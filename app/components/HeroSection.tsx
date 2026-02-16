@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { Download, ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -147,21 +148,21 @@ export default function HeroSection() {
 
   return (
     <section ref={sectionRef} id="hero" className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
-      {/* Profile Card */}
       <div
         ref={profileRef}
         className="lg:col-span-3 rounded-bento border border-dashboard-border shadow-card relative overflow-hidden group cursor-pointer"
         style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-110"
-          style={{
-            backgroundImage: "url('/Anime_Azkaa.png')",
-          }}
+        <Image
+          src="/Anime_Azkaa.png"
+          alt="Azkaa Rahiila Hardi"
+          fill
+          preload
+          sizes="(max-width: 1024px) 100vw, 25vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
 
-        {/* Decorative circles */}
         <div className="absolute top-6 left-6 w-16 h-16 rounded-full border-2 border-dashed border-white/20 opacity-50 animate-spin-slow"></div>
         <div className="absolute top-6 right-6 text-white/30 group-hover:text-white/50 transition-colors duration-300">
           <i className="fas fa-satellite-dish text-2xl animate-pulse"></i>
@@ -183,23 +184,19 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Main Hero Card */}
       <div
         ref={mainCardRef}
         className="lg:col-span-6 bg-[#0F172A] rounded-bento text-white p-8 relative overflow-hidden flex flex-col justify-center shadow-float min-h-[420px]"
         style={{ transformStyle: "preserve-3d" }}
       >
-        {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-teal-500/10 animate-gradient"></div>
         
-        {/* Glow effects */}
         <div
           ref={decorativeRef}
           className="glow-effect absolute top-0 right-0 w-64 h-64 bg-blue-600/30 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"
         ></div>
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-teal-500/20 rounded-full blur-[60px] translate-y-1/2 -translate-x-1/2 pointer-events-none animate-pulse-slow"></div>
         
-        {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-20"></div>
 
         <div className="relative z-10 space-y-6">
@@ -256,7 +253,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Contact Info Cards - 5 stacked rectangles */}
       <div ref={socialCardsRef} className="lg:col-span-3 flex flex-col gap-2">
         <a
           className="flex-1 bg-white rounded-bento border border-slate-200 p-3 flex items-center gap-3 group transition-all duration-300 hover:border-slate-400 hover:shadow-sm"
